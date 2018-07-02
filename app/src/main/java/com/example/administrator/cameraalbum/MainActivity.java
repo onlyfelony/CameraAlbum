@@ -41,7 +41,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private String mCurrentPhotoPath;
-    public final String TAG = "XSDJK";
+    public final String TAG = "XSDdaJK";
     private Button button, choose_pho, xxx;
     private ImageView imageView;
     public static final int TAKEN_PHOTO = 1;
@@ -209,8 +209,10 @@ public class MainActivity extends AppCompatActivity {
         switch (requestCode) {
             case TAKEN_PHOTO:
                 if (resultCode == RESULT_OK) {
+                    Log.d(TAG, "原来路径:"+mCurrentPhotoPath);
                     //将拍摄的照片显示出来
-
+                   String deco =  BitmapUtil.compressImage(mCurrentPhotoPath);
+                    Log.d(TAG, "压缩后路径:"+deco);
                     // 将拍摄的照片显示出来
                     imageView.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath));
                    /* Bitmap bitmap = null;
